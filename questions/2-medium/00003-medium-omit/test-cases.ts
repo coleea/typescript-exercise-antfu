@@ -1,5 +1,7 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
+type MyOmit<T, K> = any
+
 type cases = [
   Expect<Equal<Expected1, MyOmit<Todo, 'description'>>>,
   Expect<Equal<Expected2, MyOmit<Todo, 'description' | 'completed'>>>,
