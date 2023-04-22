@@ -1,6 +1,6 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
-type First<T extends any[]> = [...T]["length"]  [T]['length'] ? [...T][0]
+type First<T extends any[]> = [...T][0] ? [...T][0] : never
 
 type cases = [
   Expect<Equal<First<[3, 2, 1]>, 3>>,

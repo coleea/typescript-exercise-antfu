@@ -1,10 +1,12 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
-type TupleToObject<T extends readonly any[]> = {[K typeof T] : K}
+type TupleToObject<T extends readonly (keyof any)[]> = {[K in T[number]] : K}
 
 const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const
 const tupleNumber = [1, 2, 3, 4] as const
 const tupleMix = [1, '2', 3, '4'] as const
+
+
 
 type cases = [
   Expect<Equal<TupleToObject<typeof tuple>, { tesla: 'tesla'; 'model 3': 'model 3'; 'model X': 'model X'; 'model Y': 'model Y' }>>,
